@@ -7,13 +7,12 @@ def get_user_input():
     input = text_file.read()
     text_file.close()
 
-    for i in itertools.count():
-        try:
-            yield i, input
-        except KeyboardInterrupt:
-            pass
-        except EOFError:
-            break
+    try:
+        yield  input
+    except KeyboardInterrupt:
+        pass
+    except EOFError:
+        return
 
 def exec_function(user_input):
 
@@ -24,7 +23,7 @@ def exec_function(user_input):
     return eval
      
 
-def exec_user_input(i, user_input, user_globals):
+def exec_user_input(user_input, user_globals):
     
     user_globals = user_globals.copy()
     try:
@@ -48,7 +47,7 @@ def selected_user_globals(user_globals):
 
 def save_user_globals(user_globals, path="user_globals.txt"):
 
-    with open(path, "w") as fd:
+    with open(path, "a") as fd:
         for key, val in selected_user_globals(user_globals):
             fd.write("%s = %s (%s)\n" % (key, val, val.__class__.__name__))
 
@@ -62,8 +61,8 @@ def main():
     global exec_function
     global exec_user_input
     save_user_globals(user_globals)
-    for i, user_input in get_user_input():
-        user_globals = exec_user_input(i, user_input, user_globals)
+    for user_input in get_user_input():
+        user_globals = exec_user_input(user_input, user_globals)
         save_user_globals(user_globals)
 
 
