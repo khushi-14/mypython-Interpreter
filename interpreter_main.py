@@ -1,5 +1,4 @@
 from glob import glob
-import itertools
 
 def get_user_input():
 
@@ -15,7 +14,7 @@ def get_user_input():
         return
 
 def exec_function(user_input):
-
+    
     try:
         compile(user_input, "<stdin>", "eval")
     except SyntaxError:

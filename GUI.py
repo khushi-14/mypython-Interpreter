@@ -1,5 +1,14 @@
 import tkinter as tk
 from tkinter import filedialog
+
+file = open('mypyfile.txt', 'w') 
+file.truncate()
+file.close()
+
+file = open('user_globals.txt', 'w') 
+file.truncate()
+file.close()
+
 root = tk.Tk()
 root.geometry("950x600")
 root.title("Python Interpreter")
@@ -8,12 +17,12 @@ canvas1 = tk.Canvas(root, width=1000, bg="black", height=1000)
 canvas1.pack()
 
 label1 = tk.Label(
-    root, text="Welcome to my Python :)", fg="white", bg="black", font=("SansSerif", 24, "bold")
+    root, text="Welcome to mypython :)", fg="white", bg="black", font=("SansSerif", 24, "bold")
 )
 label1.place(x=280, y=50)
 
 label2 = tk.Label(
-    root, text="Enter Your Code:", fg="white", bg="black", font=("SansSerif", 14)
+    root, text="Enter Your Code", fg="white", bg="black", font=("SansSerif", 14)
 )
 label2.place(x=50, y=130)
 
@@ -50,14 +59,6 @@ my_text2.pack(pady=20)
 canvas1.create_window(700, 450, width=400, height=100, window=my_text2)
 
 def out():
-    file = open('mypyfile.txt', 'w') 
-    file.truncate()
-    file.close()
-
-    file = open('user_globals.txt', 'w') 
-    file.truncate()
-    file.close()
-
     code = my_text.get(1.0, tk.END)
     text_file = open('mypython_input.txt', 'w+')
     text_file.write(code)
@@ -85,6 +86,9 @@ def check():
 
 def clear():
     my_text1.delete(1.0, tk.END)
+    file = open('mypyfile.txt', 'w') 
+    file.truncate()
+    file.close()
 
 def save():
     file = filedialog.asksaveasfile(defaultextension=".*", mode='w', initialdir="C:\\Users\\drpre\\OneDrive\\Desktop\\teams", title="Save Text File", filetypes=(("Text Files", "*.txt"), ))
