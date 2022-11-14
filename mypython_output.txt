@@ -1,1 +1,1 @@
-hii
+NameError: name 'hi' is not defined

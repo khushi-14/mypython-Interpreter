@@ -1,0 +1,11 @@
+mypython In: print("Hello World")
+mypython Out: Hello World
+mypython In: x=10/0
+mypython Out: ZeroDivisionError: division by zero
+mypython In: x=20
+mypython Out: mypython In: y='a'
+mypython Out: mypython In: # commenting
+mypython Out: mypython In: print(2**2)
+mypython Out: 4
+mypython In: print(hi)
+mypython Out: NameError: name 'hi' is not defined
