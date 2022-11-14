@@ -1,7 +1,7 @@
-# mypython-Interpreter
-# This application was made using tkinter package in python.
+## mypython-Interpreter
+### This application was made using tkinter package in python.
 
-# Outputs:
+### Outputs:
 ![alt text](https://github.com/khushi-14/mypython-Interpreter/blob/main/images/ss2.jpeg)
 
 ![alt text](https://github.com/khushi-14/mypython-Interpreter/blob/main/images/ss3.jpeg)
